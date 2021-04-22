@@ -2,11 +2,11 @@ from flask import Flask,render_template,request,redirect,url_for
 import pymysql
 #from PredictInput import predict
 app = Flask(__name__)
-#conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="teststdb")
+#conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="teststdb")
 
 @app.route('/')
 def showdata():
-    conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
+    conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="finsurance")
     with conn:
         cur=conn.cursor()
         cur.execute("select * from insurancestatus")
@@ -17,19 +17,19 @@ def showdata():
 
 @app.route('/sform')
 def sform():
-    conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
+    conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="finsurance")
     return render_template('addData.html')
 
 @app.route('/insert',methods = ['POST'])
 def insert():
-    conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
+    conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="finsurance")
     if request.method=="POST":
         Channel=request.form['Channel']
         CampaignCode=request.form['CampaignCode']
         PlanCode=request.form['PlanCode']
         PolicyNumber=request.form['PolicyNumber']
         MaritalStatus=request.form['MaritalStatus']
-        #Province=request.form['Province']
+        Province=request.form['Province']
         Sex=request.form['Sex']
         IssueAge=request.form['IssueAge']
         Attain_Age=request.form['Attain_Age']
@@ -47,16 +47,16 @@ def insert():
         PaymentMethod2=request.form['PaymentMethod2']
         HospitalCode=request.form['HospitalCode']
         InsuredID=request.form['InsuredID']
-        PaybleAmount=request.form['PaybleAmount']
         with conn.cursor() as cursor:
-            sql = "INSERT INTO insurancestatus (Channel, CampaignCode, PlanCode, PolicyNumber, MaritalStatus, Province, Sex, IssueAge, Attain_Age, ClaimStatus ,DaysHospital, OfClaims, ClaimCategory, AmountOfClaim, PaybleAmount, Icd10, ProductName, policykey, PayerKey, PayerType, PaymentMethod2, HospitalCode, InsuredID, PaybleAmount) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}')".format(Channel, CampaignCode, PlanCode, PolicyNumber, MaritalStatus, Province, Sex, IssueAge, Attain_Age, ClaimStatus ,DaysHospital, OfClaims, ClaimCategory, AmountOfClaim, PaybleAmount, Icd10, ProductName, policykey, PayerKey, PayerType, PaymentMethod2, HospitalCode, InsuredID, PaybleAmount)
+            # print(Channel, CampaignCode, PlanCode, PolicyNumber, MaritalStatus, Province, Sex, IssueAge, Attain_Age, ClaimStatus ,DaysHospital, OfClaims, ClaimCategory, AmountOfClaim, PaybleAmount, Icd10, ProductName, policykey, PayerKey, PayerType, PaymentMethod2, HospitalCode, InsuredID, PaybleAmount)
+            sql = "INSERT INTO insurancestatus (annel, CampaignCode, PlanCode, PolicyNumber, MaritalStatus, Province, Sex, IssueAge, Attain_Age, ClaimStatus ,DaysHospital, OfClaims, ClaimCategory, AmountOfClaim, PaybleAmount, Icd10, ProductName, policykey, PayerKey, PayerType, PaymentMethod2, HospitalCode, InsuredID) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}')".format(Channel, CampaignCode, PlanCode, PolicyNumber, MaritalStatus, Province, Sex, IssueAge, Attain_Age, ClaimStatus ,DaysHospital, OfClaims, ClaimCategory, AmountOfClaim, PaybleAmount, Icd10, ProductName, policykey, PayerKey, PayerType, PaymentMethod2, HospitalCode, InsuredID)
             cursor.execute(sql)
             conn.commit()
         return redirect(url_for('showdata'))
 
-@app.route('/delete/<string:id_data>',methods = ['GET'])
+@app.route('/delete/<string:id_data>',methods = ['POST'])
 def delete(id_data):
-    conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
+    conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="finsurance")
     with conn:
         cur=conn.cursor()
         cur.execute("delete from insurancestatus where id={0}".format(id_data))
@@ -65,7 +65,7 @@ def delete(id_data):
 
 @app.route('/update',methods = ['POST'])
 def update():
-    conn=pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
+    conn=pymysql.connect(host="127.0.0.1",port=3320,user="root",passwd="12345678",database="finsurance")
     if request.method=="POST":
         id_update=request.form['id']
         fname=request.form['fname']
@@ -78,8 +78,6 @@ def update():
             #cursor.execute(sql)
             conn.commit()
         return redirect(url_for('showdata'))
-
-
 
 @app.route('/predict',methods = ['GET','POST'])
 def predict():

@@ -54,8 +54,8 @@ model = DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=10
                        random_state=None, splitter='best')
 model.fit(X_train, Y_train)
 
-filename = 'D:/Project/PJ/model/Model_21_3_2021.sav'
+filePath = './model/Model_21_3_2021.sav'
 
-pickle.dump(model, open(filename, 'wb'))
+pickle.dump(model, open(filePath, 'wb'))
 #dataframe2.to_csv (r'D:\testpj\test\export_dataframe.csv', index = False, header=True)
 #print('dddd')
