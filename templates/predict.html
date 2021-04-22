@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Predict</h2>
+    <div class="row">
+      <!-- <div class="form-row"> -->
+
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-group col-md-6">
+          <label for="AmountOfClaim">AmountOfClaim</label>
+          <input type="text" class="form-control" id="AmountOfClaim" placeholder="2400">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="DaysinHospital">Days in Hospital
+          </label>
+          <input type="text" class="form-control" id="DaysinHospital" placeholder="12">
+        </div>
+        <!-- </div> -->
+
+        <!-- <div class="row"> -->
+        <!-- <div class="col align-self-center"> -->
+
+        <div class="form-group col-md-6">
+          <label for="Remaining">Remaining</label>
+          <input type="password" class="form-control" id="Remaining" placeholder="Number of Year">
+        </div>
+
+        <!-- <div class="form-row"> -->
+
+        <!-- </div> -->
+
+        <!-- <div class="form-row"> -->
+        <div class="form-group col-md-6">
+          <label for="ClaimCategory">ClaimCategory</label>
+          <select id="ClaimCategory" class="form-control">
+            <option selected>Choose...</option>
+
+            <option>Accident</option>
+            <option>Death</option>
+            <option>Dental</option>
+            <option>Health</option>
+            <option>PA</option>
+
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="ICD10G">ICD10 Group</label>
+          <select id="ICD10G" class="form-control">
+            <option selected>Choose...</option>
+
+            <option>A00-B99</option>
+            <option>C00-D48</option>
+            <option>E00-E90</option>
+            <option>F00-F99</option>
+            <option>G00-G99</option>
+            <option>H00-H59</option>
+            <option>I00-I99</option>
+            <option>J00-J99</option>
+            <option>K00-K93</option>
+            <option>L00-L99</option>
+            <option>M00-M99</option>
+            <option>N00-N99</option>
+            <option>O00-O99</option>
+            <option>P00-P96</option>
+            <option>Q00-Q99</option>
+            <option>R00-R99</option>
+            <option>S00-T98</option>
+            <option>U00-U99</option>
+            <option>V01-Y98</option>
+            <option>W00-W99</option>
+            <option>X00-X99</option>
+            <option>Y00-Y98</option>
+            <option>Z00-Z99</option>
+            <option></option>
+
+
+          </select>
+        </div>
+
+
+
+        <div class="form-group col-md-6 ">
+          <label for="validationTooltip01">Gender</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="Gender" name="Gender" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Male</label>
+            <input type="radio" id="Gender" name="Gender" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Female</label>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+      <a type="submit" class="btn btn-primary">Predict</a>
+    </div>
+    
+    </form>
+    <!-- </div> -->
+
+
+    <!-- </div> -->
+</body>
+
+</html>

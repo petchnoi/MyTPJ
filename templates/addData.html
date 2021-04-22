@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>บันทึกข้อมูล</h2>
+        <form action="{{ url_for('insert') }}" method="post">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Channel</label>
+            <input type="text" class="form-control" name="Channel" placeholder="TM">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">CampaignCode</label>
+            <input type="text" class="form-control" name="CampaignCode" placeholder="ICGGK">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">PlanCode</label>
+            <input type="text" class="form-control" name="PlanCode" placeholder="AMRXM">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">PolicyNumber</label>
+            <input type="text" class="form-control" name="PolicyNumber" placeholder="PNK2064664">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">MaritalStatus</label>
+            <input type="text" class="form-control" name="MaritalStatus" placeholder="1">
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="inputState">Province</label>
+            <select id="inputState" class="form-control">
+              <option selected>จ.สมุทรปราการ</option>
+  
+              <option>Accident</option>
+              <option>Death</option>
+              <option>Dental</option>
+              <option>Health</option>
+              <option>PA</option>
+              
+  
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Gender</label>
+            <input type="text" class="form-control" name="Sex" placeholder="Female">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">IssueAge</label>
+            <input type="text" class="form-control" name="CampaignCode" placeholder="52">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Attain_Age</label>
+            <input type="text" class="form-control" name="Attain_Age" placeholder="12">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">ClaimStatus</label>
+            <input type="text" class="form-control" name="ClaimStatus" placeholder="Payment">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">DaysHospital</label>
+            <input type="text" class="form-control" name="DaysHospital" placeholder="13">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">OfClaims</label>
+            <input type="text" class="form-control" name="OfClaims" placeholder="HIP">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">ClaimCategory</label>
+            <input type="text" class="form-control" name="ClaimCategory" placeholder="Accident">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">AmountOfClaim</label>
+            <input type="text" class="form-control" name="AmountOfClaim" placeholder="2100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">PaybleAmount</label>
+            <input type="text" class="form-control" name="PaybleAmount" placeholder="2100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Icd10</label>
+            <input type="text" class="form-control" name="Icd10" placeholder="S14">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">ProductName</label>
+            <input type="text" class="form-control" name="OfClaims" placeholder="AMR P">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">policykey</label>
+            <input type="text" class="form-control" name="policykey" placeholder="PKT0000141">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">PayerKey</label>
+            <input type="text" class="form-control" name="PayerKey" placeholder="PTT000154">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">PayerType</label>
+            <input type="text" class="form-control" name="PayerType" placeholder="Provider">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">PaymentMethod2</label>
+            <input type="text" class="form-control" name="PaymentMethod2" placeholder="DIRECT_CREDIT">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">HospitalCode</label>
+            <input type="text" class="form-control" name="HospitalCode" placeholder="TPA0017">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">InsuredID</label>
+            <input type="text" class="form-control" name="InsuredID" placeholder="AMR P">
+          </div>
+         
+         <a class="btn btn-success" href="/">กลับหน้าแรก</a>
+         <button type="submit" class="pull-right btn btn-primary">บันทึก</button>
+
+
+
+        </form>
+    </div>
+  </body>
+</html>

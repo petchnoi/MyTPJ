@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Helloe Python</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head>
+
+
+<body>
+  
+  <h1>Petch </h1>
+  <div class="container">
+    <div class="col align-self-center table-responsive" style="width: 100%; height: 500px; overflow-y: scroll;">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>PlanCode</th>
+            <th>PolicyNumber</th>
+            <th>MaritalStatus</th>
+            <th>Province</th>
+            <th>Sex</th>
+            <th>IssueAge</th>
+            <th>InsuredID</th>
+            <th>Attain_Age</th>
+            <th>lifttime</th>
+            <th>ClaimStatus</th>
+            <th>DaysHospital</th>
+            <th>OfClaims</th>
+            <th>ClaimCategory</th>
+            <th>AmountOfClaim</th>
+            <th>PaybleAmount</th>
+            <th>Icd10</th>
+            <th>ICD10Group</th>
+            <th>ProductName</th>
+            <th>policykey</th>
+            <th>PayerKey</th>
+            <th>PayerType</th>
+            <th>PaymentMethod2</th>
+            <th>HospitalCode</th>
+            <th>Status_Stamp</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td>{{row.0}}</td>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.3}}</td>
+            <td>{{row.4}}</td>
+            <td>{{row.5}}</td>
+            <td>{{row.6}}</td>
+            <td>{{row.7}}</td>
+            <td>{{row.8}}</td>
+            <td>{{row.9}}</td>
+            <td>{{row.10}}</td>
+            <td>{{row.11}}</td>
+            <td>{{row.12}}</td>
+            <td>{{row.13}}</td>
+            <td>{{row.14}}</td>
+            <td>{{row.15}}</td>
+            <td>{{row.16}}</td>
+            <td>{{row.17}}</td>
+            <td>{{row.18}}</td>
+            <td>{{row.19}}</td>
+            <td>{{row.20}}</td>
+            <td>{{row.21}}</td>
+            <td>{{row.22}}</td>
+            <td>{{row.23}}</td>
+            <td>
+              <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">Edit</a>
+              <a href="/delete/{{ row.0 }}" class="btn btn-danger btn-xs"
+                onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่?')">Delete</a>
+            </td>
+          </tr>
+          <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">อัพเดทข้อมูลของท่าน</h4>
+                </div>
+                <div class="modal-body">
+                  <form action="/update" method="POST">
+                    <div class="form-group">
+                      <label>ชื่อ:</label>
+                      <input type="hidden" name="id" value="{{row.0}}">
+                      <input type="text" class="form-control" name="fname" value="{{row.1}}">
+                    </div>
+                    <div class="form-group">
+                      <label>นามสกุล:</label>
+                      <input type="text" class="form-control" name="lname" value="{{row.2}}">
+                    </div>
+                    <div class="form-group">
+                      <label>เบอร์โทรศัพท์:</label>
+                      <input type="text" class="form-control" name="phone" value="{{row.3}}">
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-primary" type="submit">อัพเดท</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+    </div>
+    <div>
+      <a href="/sform" class="btn btn-primary">เพิ่มรายชื่อใหม่</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
