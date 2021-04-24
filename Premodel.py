@@ -1,9 +1,8 @@
 from flask import Flask,render_template,request,redirect,url_for
-import pickle
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import pymysql
-
+import joblib 
 conn = pymysql.connect(host="localhost",user="root",passwd="12345678",database="finsurance")
 
 with conn:
@@ -34,13 +33,15 @@ Ldf = pd.concat([df, dum, lable], axis=1)
 #print(Ldf)
 
 
-ff = Ldf.drop(['ClaimCategory_', 'ICD10Group_','Sex_'], axis=1)
-
+#ff = Ldf.drop(['ClaimCategory_', 'ICD10Group_','Sex_'], axis=1)
 #print(dum.columns.values)
 
+# debug
+# print(Ldf)
+# Ldf.to_csv (r'D:\Project\PJ\writefile\export_dataframe.csv', index = False, header=True)
 
 #dataframetomodel
-datatoM = ff.dropna(axis=0)
+datatoM = Ldf.dropna(axis=0)
 
 X_train = datatoM.drop('Status_Stamp', axis=1).values
 Y_train = datatoM['Status_Stamp'].values
@@ -54,8 +55,9 @@ model = DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=10
                        random_state=None, splitter='best')
 model.fit(X_train, Y_train)
 
-filePath = './model/Model_21_3_2021.sav'
+filename = 'D:/Project/PJ/model/Model_21_3_2021.sav'
 
-pickle.dump(model, open(filePath, 'wb'))
+#pickle.dump(model, open(filename, 'wb'))
+joblib.dump(model, open(filename, 'wb'))
 #dataframe2.to_csv (r'D:\testpj\test\export_dataframe.csv', index = False, header=True)
-#print('dddd')
+print('dddd')

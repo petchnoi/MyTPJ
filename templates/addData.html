@@ -1,124 +1,305 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <h2>บันทึกข้อมูล</h2>
-        <form action="{{ url_for('insert') }}" method="post">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Channel</label>
-            <input type="text" class="form-control" name="Channel" placeholder="TM">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">CampaignCode</label>
-            <input type="text" class="form-control" name="CampaignCode" placeholder="ICGGK">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">PlanCode</label>
-            <input type="text" class="form-control" name="PlanCode" placeholder="AMRXM">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">PolicyNumber</label>
-            <input type="text" class="form-control" name="PolicyNumber" placeholder="PNK2064664">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">MaritalStatus</label>
-            <input type="text" class="form-control" name="MaritalStatus" placeholder="1">
-          </div>
-          
-          <div class="form-group col-md-6">
-            <label for="inputState">Province</label>
-            <select id="inputState"   name="Province"  class="form-control">
-              <option selected>จ.สมุทรปราการ</option>
-              <option>Accident</option>
-              <option>Death</option>
-              <option>Dental</option>
-              <option>Health</option>
-              <option>PA</option>
-            </select>
-          </div>
 
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Gender</label>
-            <input type="text" class="form-control" name="Sex" placeholder="Female">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">IssueAge</label>
-            <input type="text" class="form-control" name="IssueAge" placeholder="52">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Attain_Age</label>
-            <input type="text" class="form-control" name="Attain_Age" placeholder="12">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">ClaimStatus</label>
-            <input type="text" class="form-control" name="ClaimStatus" placeholder="Payment">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">DaysHospital</label>
-            <input type="text" class="form-control" name="DaysHospital" placeholder="13">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">OfClaims</label>
-            <input type="text" class="form-control" name="OfClaims" placeholder="HIP">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">ClaimCategory</label>
-            <input type="text" class="form-control" name="ClaimCategory" placeholder="Accident">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">AmountOfClaim</label>
-            <input type="text" class="form-control" name="AmountOfClaim" placeholder="2100">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">PaybleAmount</label>
-            <input type="text" class="form-control" name="PaybleAmount" placeholder="2100">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Icd10</label>
-            <input type="text" class="form-control" name="Icd10" placeholder="S14">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">ProductName</label>
-            <input type="text" class="form-control" name="ProductName" placeholder="AMR P">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">policykey</label>
-            <input type="text" class="form-control" name="policykey" placeholder="PKT0000141">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">PayerKey</label>
-            <input type="text" class="form-control" name="PayerKey" placeholder="PTT000154">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">PayerType</label>
-            <input type="text" class="form-control" name="PayerType" placeholder="Provider">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">PaymentMethod2</label>
-            <input type="text" class="form-control" name="PaymentMethod2" placeholder="DIRECT_CREDIT">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">HospitalCode</label>
-            <input type="text" class="form-control" name="HospitalCode" placeholder="TPA0017">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">InsuredID</label>
-            <input type="text" class="form-control" name="InsuredID" placeholder="AMR P">
-          </div>
-         
-         <a class="btn btn-success" href="/">กลับหน้าแรก</a>
-         <button type="submit" class="pull-right btn btn-primary">บันทึก</button>
-
-
-
-        </form>
+<head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IFD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+          <a class="nav-link" href="/predict">predict</a>
+          <a class="nav-link" href="/">data</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+      </div>
     </div>
-  </body>
+  </nav>
+  
+<title>Page Title</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E</script>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-center">บันทึกข้อมูล</h2>
+    <form action="{{ url_for('insert') }}" method="post">
+      <div class="row">
+        <div class="form-group col-md-6">
+
+          <label for="inputEmail4">Channel</label>
+          <input type="text" class="form-control" value="TM" name="Channel" placeholder="TM">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">CampaignCode</label>
+          <input type="text" class="form-control" maxlength="5" name="CampaignCode" placeholder="ICGGK">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">PlanCode</label>
+          <input type="text" class="form-control" maxlength="6" name="PlanCode" placeholder="AMRXM">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">PolicyNumber</label>
+          <input type="text" class="form-control" maxlength="10" name="PolicyNumber" placeholder="PNK2064664">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">MaritalStatus</label>
+          <input type="text" class="form-control" maxlength="2" name="MaritalStatus" placeholder="1">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputState">Province</label>
+          <select class="form-select" name="Province" aria-label="Default select example">
+
+            <option selected value="จ.สมุทรสงคราม">จ.สมุทรสงคราม</option>
+            <option value="จ.สมุทรปราการ">จ.สมุทรปราการ</option>
+            <option value="จ.เชียงใหม่">จ.เชียงใหม่</option>
+            <option value="จ.กาญจนบุรี">จ.กาญจนบุรี</option>
+            <option value="จ.ตาก">จ.ตาก</option>
+            <option value="จ.อุบลราชธานี">จ.อุบลราชธานี</option>
+            <option value="จ.สุราษฎร์ธานี">จ.สุราษฎร์ธานี</option>
+            <option value="จ.ชัยภูมิ">จ.ชัยภูมิ</option>
+            <option value="จ.แม่ฮ่องสอน">จ.แม่ฮ่องสอน</option>
+            <option value="จ.เพชรบูรณ์">จ.เพชรบูรณ์</option>
+            <option value="จ.ลำปาง">จ.ลำปาง</option>
+            <option value="จ.อุดรธานี">จ.อุดรธานี</option>
+            <option value="จ.เชียงราย">จ.เชียงราย</option>
+            <option value="จ.น่าน">จ.น่าน</option>
+            <option value="จ.เลย">จ.เลย</option>
+            <option value="จ.ขอนแก่น">จ.ขอนแก่น</option>
+            <option value="จ.พิษณุโลก">จ.พิษณุโลก</option>
+            <option value="จ.บุรีรัมย์">จ.บุรีรัมย์</option>
+            <option value="จ.นครศรีธรรมราช">จ.นครศรีธรรมราช</option>
+            <option value="จ.สกลนคร">จ.สกลนคร</option>
+            <option value="จ.นครสวรรค์">จ.นครสวรรค์</option>
+            <option value="จ.ศรีสะเกษ">จ.ศรีสะเกษ</option>
+            <option value="จ.กำแพงเพชร">จ.กำแพงเพชร</option>
+            <option value="จ.ร้อยเอ็ด">จ.ร้อยเอ็ด</option>
+            <option value="จ.สุรินทร์">จ.สุรินทร์</option>
+            <option value="จ.อุตรดิตถ์">จ.อุตรดิตถ์</option>
+            <option value="จ.สงขลา">จ.สงขลา</option>
+            <option value="จ.สระแก้ว">จ.สระแก้ว</option>
+            <option value="จ.กาฬสินธุ์">จ.กาฬสินธุ์</option>
+            <option value="จ.อุทัยธานี">จ.อุทัยธานี</option>
+            <option value="จ.สุโขทัย">จ.สุโขทัย</option>
+            <option value="จ.แพร่">จ.แพร่</option>
+            <option value="จ.ประจวบคีรีขันธ์">จ.ประจวบคีรีขันธ์</option>
+            <option value="จ.จันทบุรี">จ.จันทบุรี</option>
+            <option value="จ.พะเยา">จ.พะเยา</option>
+            <option value="จ.เพชรบุรี">จ.เพชรบุรี</option>
+            <option value="จ.ลพบุรี">จ.ลพบุรี</option>
+            <option value="จ.ชุมพร">จ.ชุมพร</option>
+            <option value="จ.นครพนม">จ.นครพนม</option>
+            <option value="จ.สุพรรณบุรี">จ.สุพรรณบุรี</option>
+            <option value="จ.ฉะเชิงเทรา">จ.ฉะเชิงเทรา</option>
+            <option value="จ.มหาสารคาม">จ.มหาสารคาม</option>
+            <option value="จ.ราชบุรี">จ.ราชบุรี</option>
+            <option value="จ.ตรัง">จ.ตรัง</option>
+            <option value="จ.ปราจีนบุรี">จ.ปราจีนบุรี</option>
+            <option value="จ.กระบี่">จ.กระบี่</option>
+            <option value="จ.พิจิตร">จ.พิจิตร</option>
+            <option value="จ.ยะลา">จ.ยะลา</option>
+            <option value="จ.ลำพูน">จ.ลำพูน</option>
+            <option value="จ.นราธิวาส">จ.นราธิวาส</option>
+            <option value="จ.ชลบุรี">จ.ชลบุรี</option>
+            <option value="จ.มุกดาหาร">จ.มุกดาหาร</option>
+            <option value="จ.บึงกาฬ">จ.บึงกาฬ</option>
+            <option value="จ.พังงา">จ.พังงา</option>
+            <option value="จ.ยโสธร">จ.ยโสธร</option>
+            <option value="จ.หนองบัวลำภู">จ.หนองบัวลำภู</option>
+            <option value="จ.สระบุรี">จ.สระบุรี</option>
+            <option value="จ.ระยอง">จ.ระยอง</option>
+            <option value="จ.พัทลุง">จ.พัทลุง</option>
+            <option value="จ.ระนอง">จ.ระนอง</option>
+            <option value="จ.อำนาจเจริญ">จ.อำนาจเจริญ</option>
+            <option value="จ.หนองคาย">จ.หนองคาย</option>
+            <option value="จ.ตราด">จ.ตราด</option>
+            <option value="จ.พระนครศรีอยุธยา">จ.พระนครศรีอยุธยา</option>
+            <option value="จ.สตูล">จ.สตูล</option>
+            <option value="จ.ชัยนาท">จ.ชัยนาท</option>
+            <option value="จ.นครปฐม">จ.นครปฐม</option>
+            <option value="จ.นครนายก">จ.นครนายก</option>
+            <option value="จ.ปัตตานี">จ.ปัตตานี</option>
+            <option value="จ.กรุงเทพมหานคร">จ.กรุงเทพมหานคร</option>
+            <option value="จ.ปทุมธานี">จ.ปทุมธานี</option>
+            <option value="จ.อ่างทอง">จ.อ่างทอง</option>
+            <option value="จ.สมุทรสาคร">จ.สมุทรสาคร</option>
+            <option value="จ.สิงห์บุรี">จ.สิงห์บุรี</option>
+            <option value="จ.นนทบุรี">จ.นนทบุรี</option>
+            <option value="จ.ภูเก็ต">จ.ภูเก็ต</option>
+
+
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Gender</label>
+
+          <select class="form-select" name="Sex" aria-label="Default select example">
+
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+
+          </select>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">IssueAge</label>
+          <input type="text" class="form-control" maxlength="2" name="IssueAge" placeholder="52">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Attain_Age</label>
+          <input type="text" class="form-control" maxlength="2" name="Attain_Age" placeholder="12">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">ClaimStatus</label>
+          <input type="text" class="form-control" value="Payment" name="ClaimStatus" placeholder="Payment">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">DaysHospital</label>
+          <input type="text" class="form-control" maxlength="3" name="DaysHospital" placeholder="13">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">OfClaims</label>
+          <select class="form-select" name="OfClaims" aria-label="Default select example">
+
+            <option selected value="HIP">HIP</option>
+            <option value="PA">PA</option>
+            <option value="Dental">Dental</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">ClaimCategory</label>
+          <select class="form-select" name="ClaimCategory" aria-label="Default select example">
+
+            <option selected value="Accident">Accident</option>
+            <option value="Death">Death</option>
+            <option value="Dental">Dental</option>
+            <option value="Health">Health</option>
+            <option value="PA">PA</option>
+          </select>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">AmountOfClaim</label>
+          <input type="text" class="form-control" name="AmountOfClaim" placeholder="2100">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">PaybleAmount</label>
+          <input type="text" class="form-control" name="PaybleAmount" placeholder="2100">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">ICD10Group</label>
+          <select class="form-select" name="ICD10Group" aria-label="Default select example">
+
+            <option value="A00-B99">A00-B99</option>
+            <option value="C00-D48">C00-D48</option>
+            <option value="E00-E90">E00-E90</option>
+            <option value="F00-F99">F00-F99</option>
+            <option value="G00-G99">G00-G99</option>
+            <option value="H00-H59">H00-H59</option>
+            <option value="I00-I99">I00-I99</option>
+            <option value="J00-J99">J00-J99</option>
+            <option value="K00-K93">K00-K93</option>
+            <option value="L00-L99">L00-L99</option>
+            <option value="M00-M99">M00-M99</option>
+            <option value="N00-N99">N00-N99</option>
+            <option value="O00-O99">O00-O99</option>
+            <option value="P00-P96">P00-P96</option>
+            <option value="Q00-Q99">Q00-Q99</option>
+            <option value="R00-R99">R00-R99</option>
+            <option value="S00-T98">S00-T98</option>
+            <option value="U00-U99">U00-U99</option>
+            <option value="V01-Y98">V01-Y98</option>
+            <option value="W00-W99">W00-W99</option>
+            <option value="X00-X99">X00-X99</option>
+            <option value="Y00-Y98">Y00-Y98</option>
+            <option value="Z00-Z99">Z00-Z99</option>
+
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">ProductName</label>
+          <input type="text" class="form-control" maxlength="4" name="ProductName" placeholder="AMR P">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">policykey</label>
+          <input type="text" class="form-control" maxlength="10" name="policykey" placeholder="PKT0000141">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">PayerKey</label>
+          <input type="text" class="form-control" maxlength="9" name="PayerKey" placeholder="PTT000154">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">PayerType</label>
+          <select class="form-select" name="PayerType" aria-label="Default select example">
+            <option value="Provider">Provider</option>
+            <option value="Customer">Customer</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">PaymentMethod2</label>
+          <select class="form-select" name="PaymentMethod2" aria-label="Default select example">
+            <option value="DIRECT_CREDIT">DIRECT_CREDIT</option>
+            <option value="CHECK">CHECK</option>
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">InsuredID</label>
+          <input type="text" class="form-control" name="InsuredID" placeholder="AMR P">
+
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">HospitalCode</label>
+          <input type="text" class="form-control" name="HospitalCode" placeholder="TPA0017">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">PayerType</label>
+          <select class="form-select" name="Status_Stamp" aria-label="Default select example">
+            <option value="Fraud">Fraud</option>
+            <option value="Abuse">Abuse</option>
+            <option value="Non_Fraud">Non_Fraud</option>
+          </select>
+        </div>
+      </div>
+
+
+
+
+      <div class="text-center mt-3">
+        <a class="btn btn-success"  href="/">กลับหน้าแรก</a>
+      
+        <button type="submit" class="pull-right btn btn-primary">บันทึก</button>
+  
+
+      </div>
+      
+
+
+
+      </div>
+      
+
+
+
+    </form>
+  </div>
+</body>
+
 </html>

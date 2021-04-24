@@ -2,29 +2,55 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Helloe Python</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IFD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+          <a class="nav-link" href="/predict">predict</a>
+          <a class="nav-link" href="/">data</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <title>Record</title>
+  </div>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E</script>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
 </head>
 
 
 <body>
-  <h1>Petch </h1>
+
+  <h2 class="text-center">Record</h2>
   <div class="container">
-    <div class="col align-self-center table-responsive" style="width: 100%; height: 500px; overflow-y: scroll;">
+    <div class="col align-self-center table-responsive" style="width: 100%; height: 700px; overflow-y: scroll;">
       <table class="table table-bordered">
         <thead>
           <tr>
+            
+            <th>Channel</th>
+            <th>CampaignCode</th>
             <th>PlanCode</th>
             <th>PolicyNumber</th>
             <th>MaritalStatus</th>
             <th>Province</th>
             <th>Sex</th>
             <th>IssueAge</th>
-            <th>InsuredID</th>
             <th>Attain_Age</th>
             <th>lifttime</th>
             <th>ClaimStatus</th>
@@ -41,6 +67,7 @@
             <th>PayerType</th>
             <th>PaymentMethod2</th>
             <th>HospitalCode</th>
+            <th>InsuredID</th>
             <th>Status_Stamp</th>
             <th>Action</th>
           </tr>
@@ -72,13 +99,15 @@
             <td>{{row.21}}</td>
             <td>{{row.22}}</td>
             <td>{{row.23}}</td>
+            <td>{{row.24}}</td>
+            <td>{{row.25}}</td>
             <td>
               <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">Edit</a>
               <a href="/delete/{{ row.0 }}" class="btn btn-danger btn-xs"
                 onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่?')">Delete</a>
             </td>
           </tr>
-          <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+          <div id="modaledit{{row.7}}" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -88,17 +117,102 @@
                 <div class="modal-body">
                   <form action="/update" method="POST">
                     <div class="form-group">
-                      <label>ชื่อ:</label>
-                      <input type="hidden" name="id" value="{{row.0}}">
-                      <input type="text" class="form-control" name="fname" value="{{row.1}}">
+                      <label>Channel:</label>
+                      <input type="hidden" name="InsuredID" value="{{row.0}}">
+                      <input type="text" class="form-control" name="Channel" value="{{row.1}}">
                     </div>
                     <div class="form-group">
-                      <label>นามสกุล:</label>
-                      <input type="text" class="form-control" name="lname" value="{{row.2}}">
+                      <label>PlanCode:</label>
+                      <input type="text" class="form-control" name="PlanCode" value="{{row.2}}">
                     </div>
                     <div class="form-group">
-                      <label>เบอร์โทรศัพท์:</label>
-                      <input type="text" class="form-control" name="phone" value="{{row.3}}">
+                      <label>PolicyNumber:</label>
+                      <input type="text" class="form-control" name="PolicyNumber" value="{{row.3}}">
+                    </div>
+                    <div class="form-group">
+                      <label>MaritalStatus:</label>
+                      <input type="text" class="form-control" name="MaritalStatus" value="{{row.4}}">
+                    </div>
+                    <div class="form-group">
+                      <label>Province:</label>
+                      <input type="text" class="form-control" name="Province" value="{{row.5}}">
+                    </div>
+                    <div class="form-group">
+                      <label>Sex:</label>
+                      <input type="text" class="form-control" name="Sex" value="{{row.6}}">
+                    </div>
+                    <div class="form-group">
+                      <label>IssueAge:</label>
+                      <input type="text" class="form-control" name="IssueAge" value="{{row.7}}">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Attain_Age:</label>
+                      <input type="text" class="form-control" name="Attain_Age" value="{{row.8}}">
+                    </div>
+                    <div class="form-group">
+                      <label>lifttime:</label>
+                      <input type="text" class="form-control" name="lifttime" value="{{row.9}}">
+                    </div>
+                    <div class="form-group">
+                      <label>ClaimStatus:</label>
+                      <input type="text" class="form-control" name="ClaimStatus" value="{{row.10}}">
+                    </div>
+                    <div class="form-group">
+                      <label>DaysHospital:</label>
+                      <input type="text" class="form-control" name="DaysHospital" value="{{row.11}}">
+                    </div>
+                    <div class="form-group">
+                      <label>OfClaims:</label>
+                      <input type="text" class="form-control" name="OfClaims" value="{{row.12}}">
+                    </div>
+                    <div class="form-group">
+                      <label>ClaimCategory:</label>
+                      <input type="text" class="form-control" name="ClaimCategory" value="{{row.13}}">
+                    </div>
+                    <div class="form-group">
+                      <label>AmountOfClaim:</label>
+                      <input type="text" class="form-control" name="AmountOfClaim" value="{{row.14}}">
+                    </div>
+                    <div class="form-group">
+                      <label>PaybleAmount:</label>
+                      <input type="text" class="form-control" name="PaybleAmount" value="{{row.15}}">
+                    </div>
+                    <div class="form-group">
+                      <label>Icd10:</label>
+                      <input type="text" class="form-control" name="Icd10" value="{{row.16}}">
+                    </div>
+                    <div class="form-group">
+                      <label>ICD10Group:</label>
+                      <input type="text" class="form-control" name="ICD10Group" value="{{row.17}}">
+                    </div>
+                    <div class="form-group">
+                      <label>ProductName:</label>
+                      <input type="text" class="form-control" name="ProductName" value="{{row.18}}">
+                    </div>
+                    <div class="form-group">
+                      <label>policykey:</label>
+                      <input type="text" class="form-control" name="policykey" value="{{row.19}}">
+                    </div>
+                    <div class="form-group">
+                      <label>PayerKey:</label>
+                      <input type="text" class="form-control" name="PayerKey" value="{{row.20}}">
+                    </div>
+                    <div class="form-group">
+                      <label>PayerType:</label>
+                      <input type="text" class="form-control" name="PayerType" value="{{row.21}}">
+                    </div>
+                    <div class="form-group">
+                      <label>PaymentMethod2:</label>
+                      <input type="text" class="form-control" name="PaymentMethod2" value="{{row.22}}">
+                    </div>
+                    <div class="form-group">
+                      <label>HospitalCode:</label>
+                      <input type="text" class="form-control" name="HospitalCode" value="{{row.23}}">
+                    </div>
+                    <div class="form-group">
+                      <label>Status_Stamp:</label>
+                      <input type="text" class="form-control" name="Status_Stamp" value="{{row.24}}">
                     </div>
                     <div class="form-group">
                       <button class="btn btn-primary" type="submit">อัพเดท</button>
@@ -118,7 +232,7 @@
 
 
     </div>
-    <div>
+    <div class="mt-3 text-center" >
       <a href="/sform" class="btn btn-primary">เพิ่มรายชื่อใหม่</a>
     </div>
   </div>
